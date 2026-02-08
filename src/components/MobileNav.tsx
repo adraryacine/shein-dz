@@ -9,7 +9,7 @@ const navItems = [
   { href: '/search', icon: Search, label: 'Recherche' },
   { href: '/wishlist', icon: Heart, label: 'Favoris', badge: 'wishlist' },
   { href: '/cart', icon: ShoppingBag, label: 'Panier', badge: 'cart' },
-  { href: '/account', icon: User, label: 'Compte' },
+  { href: '/auth', icon: User, label: 'Compte' },
 ];
 
 export const MobileNav = () => {

@@ -92,7 +92,7 @@ export const Header = () => {
                 ))}
                 <div className="h-px bg-border my-4" />
                 <Link
-                  to="/account"
+                  to="/auth"
                   onClick={() => setMobileMenuOpen(false)}
                   className="px-4 py-3 rounded-xl text-lg font-medium hover:bg-primary/10 flex items-center gap-3"
                 >
