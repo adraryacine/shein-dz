@@ -1,0 +1,416 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ModeDz Design System - Bold Glassmorphism
+   A vibrant Gen-Z focused e-commerce theme with hot pink, electric purple, and orange accents
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Core brand colors - Bold & Trendy palette */
+    --background: 270 20% 98%;
+    --foreground: 270 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 50% 10%;
+
+    /* Hot pink primary */
+    --primary: 330 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Electric purple secondary */
+    --secondary: 270 80% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Vibrant orange accent */
+    --accent: 25 100% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 270 20% 94%;
+    --muted-foreground: 270 20% 40%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 20% 90%;
+    --input: 270 20% 90%;
+    --ring: 330 100% 60%;
+
+    --radius: 1rem;
+
+    /* Extended palette for gradients */
+    --pink: 330 100% 60%;
+    --purple: 270 80% 60%;
+    --orange: 25 100% 55%;
+    --cyan: 185 100% 50%;
+    --yellow: 45 100% 55%;
+
+    /* Glassmorphism variables */
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 100% / 0.3;
+    --glass-blur: 20px;
+
+    /* Sidebar */
+    --sidebar-background: 270 30% 98%;
+    --sidebar-foreground: 270 50% 10%;
+    --sidebar-primary: 330 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270 80% 95%;
+    --sidebar-accent-foreground: 270 80% 40%;
+    --sidebar-border: 270 20% 90%;
+    --sidebar-ring: 330 100% 60%;
+
+    /* Success/Warning/Info states */
+    --success: 145 70% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 100% 50%;
+    --warning-foreground: 0 0% 10%;
+    --info: 200 100% 50%;
+    --info-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 270 30% 8%;
+    --foreground: 270 10% 95%;
+
+    --card: 270 30% 12%;
+    --card-foreground: 270 10% 95%;
+
+    --popover: 270 30% 12%;
+    --popover-foreground: 270 10% 95%;
+
+    --primary: 330 100% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 80% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 25 100% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 270 30% 20%;
+    --muted-foreground: 270 15% 60%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 30% 20%;
+    --input: 270 30% 20%;
+    --ring: 330 100% 65%;
+
+    /* Dark mode glass */
+    --glass-bg: 270 30% 15% / 0.8;
+    --glass-border: 270 30% 30% / 0.5;
+
+    /* Sidebar dark */
+    --sidebar-background: 270 30% 10%;
+    --sidebar-foreground: 270 10% 95%;
+    --sidebar-primary: 330 100% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270 30% 20%;
+    --sidebar-accent-foreground: 270 10% 95%;
+    --sidebar-border: 270 30% 20%;
+    --sidebar-ring: 330 100% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card component */
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid hsl(var(--glass-border));
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl shadow-xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
+  }
+
+  .glass-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -12px hsl(var(--primary) / 0.3);
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--pink)), hsl(var(--purple)));
+  }
+
+  .gradient-secondary {
+    background: linear-gradient(135deg, hsl(var(--purple)), hsl(var(--cyan)));
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, hsl(var(--orange)), hsl(var(--pink)));
+  }
+
+  .gradient-rainbow {
+    background: linear-gradient(135deg, hsl(var(--pink)), hsl(var(--purple)), hsl(var(--cyan)));
+  }
+
+  .gradient-sunset {
+    background: linear-gradient(135deg, hsl(var(--orange)), hsl(var(--pink)), hsl(var(--purple)));
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--pink)), hsl(var(--purple)));
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--orange)), hsl(var(--pink)));
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: 0 0 40px -10px hsl(var(--pink) / 0.5);
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 40px -10px hsl(var(--purple) / 0.5);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 40px -10px hsl(var(--orange) / 0.5);
+  }
+
+  /* Animated gradient border */
+  .gradient-border {
+    position: relative;
+    background: hsl(var(--card));
+    border-radius: var(--radius);
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: calc(var(--radius) + 2px);
+    background: linear-gradient(135deg, hsl(var(--pink)), hsl(var(--purple)), hsl(var(--orange)));
+    z-index: -1;
+    opacity: 0.8;
+  }
+
+  /* Flash sale badge */
+  .flash-badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider;
+    background: linear-gradient(135deg, hsl(var(--orange)), hsl(var(--pink)));
+    color: white;
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px -5px hsl(var(--pink) / 0.6);
+    }
+    50% {
+      box-shadow: 0 0 30px -5px hsl(var(--orange) / 0.8);
+    }
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Shimmer effect for loading */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--background)) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Price badge styling */
+  .price-tag {
+    @apply font-bold text-lg;
+    color: hsl(var(--primary));
+  }
+
+  .price-tag-old {
+    @apply text-sm line-through;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Category card */
+  .category-card {
+    @apply relative overflow-hidden rounded-2xl aspect-square;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .category-card:hover {
+    transform: scale(1.02);
+  }
+
+  .category-card::after {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(to top, hsl(var(--purple) / 0.8), transparent 60%);
+  }
+
+  /* Mobile bottom nav */
+  .mobile-nav {
+    @apply glass fixed bottom-0 left-0 right-0 z-50 px-4 py-2 safe-area-bottom;
+    border-top: 1px solid hsl(var(--glass-border));
+  }
+
+  /* Safe area for notched phones */
+  .safe-area-bottom {
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  }
+
+  .safe-area-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+
+  /* Countdown timer styling */
+  .countdown-box {
+    @apply glass-card px-3 py-2 min-w-[60px] text-center;
+  }
+
+  .countdown-number {
+    @apply text-2xl font-bold text-gradient;
+  }
+
+  .countdown-label {
+    @apply text-[10px] uppercase tracking-wider text-muted-foreground;
+  }
+
+  /* Product card */
+  .product-card {
+    @apply glass-card-hover overflow-hidden cursor-pointer;
+  }
+
+  .product-card-image {
+    @apply relative aspect-[3/4] overflow-hidden;
+  }
+
+  .product-card-image img {
+    @apply w-full h-full object-cover transition-transform duration-500;
+  }
+
+  .product-card:hover .product-card-image img {
+    transform: scale(1.05);
+  }
+
+  /* Heart/wishlist button */
+  .wishlist-btn {
+    @apply absolute top-3 right-3 w-9 h-9 rounded-full glass flex items-center justify-center transition-all;
+  }
+
+  .wishlist-btn:hover {
+    @apply bg-primary/20;
+  }
+
+  .wishlist-btn.active {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--pink)), hsl(var(--purple)));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, hsl(var(--purple)), hsl(var(--pink)));
+  }
+
+  /* Hide scrollbar but keep functionality for horizontal scroll */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  /* Membership tier colors */
+  .tier-bronze {
+    color: #CD7F32;
+  }
+  .tier-silver {
+    color: #C0C0C0;
+  }
+  .tier-gold {
+    color: #FFD700;
+  }
+
+  .bg-tier-bronze {
+    background: linear-gradient(135deg, #CD7F32, #8B4513);
+  }
+  .bg-tier-silver {
+    background: linear-gradient(135deg, #C0C0C0, #808080);
+  }
+  .bg-tier-gold {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+  }
+}
