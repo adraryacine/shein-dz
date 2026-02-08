@@ -1,4 +1,5 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import ProductCard from '@/components/ProductCard';
 import type { Product } from '@/types';
@@ -43,9 +44,11 @@ export const ProductCarousel = ({
         </div>
         <div className="flex items-center gap-2">
           {viewAllLink && (
-            <Button variant="ghost" className="hidden sm:flex">
-              Voir tout
-            </Button>
+            <Link to={viewAllLink} className="hidden sm:block">
+              <Button variant="ghost">
+                Voir tout
+              </Button>
+            </Link>
           )}
           <Button
             variant="outline"

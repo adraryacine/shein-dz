@@ -595,3 +595,15 @@ export const getNewProducts = (): Product[] => {
 export const getProductBySlug = (slug: string): Product | undefined => {
   return mockProducts.find((p) => p.slug === slug);
 };
+
+// Get category by slug
+export const getCategoryBySlug = (slug: string): Category | undefined => {
+  return mockCategories.find((c) => c.slug === slug);
+};
+
+// Get products by category slug
+export const getProductsByCategorySlug = (slug: string): Product[] => {
+  const category = getCategoryBySlug(slug);
+  if (!category) return [];
+  return mockProducts.filter((p) => p.categoryId === category.id);
+};
