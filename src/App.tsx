@@ -16,6 +16,12 @@ import Category from "./pages/Category";
 import Categories from "./pages/Categories";
 import Trending from "./pages/Trending";
 import Deals from "./pages/Deals";
+import Dashboard from "./pages/admin/Dashboard";
+import Products from "./pages/admin/Products";
+import ProductForm from "./pages/admin/ProductForm";
+import CategoriesAdmin from "./pages/admin/Categories";
+import Orders from "./pages/admin/Orders";
+import Settings from "./pages/admin/Settings";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +45,15 @@ const App = () => (
           <Route path="/categories" element={<Categories />} />
           <Route path="/trending" element={<Trending />} />
           <Route path="/deals" element={<Deals />} />
+          {/* Back Office Routes */}
+          <Route path="/admin" element={<Dashboard />} />
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+          <Route path="/admin/products" element={<Products />} />
+          <Route path="/admin/products/new" element={<ProductForm />} />
+          <Route path="/admin/products/:id/edit" element={<ProductForm />} />
+          <Route path="/admin/categories" element={<CategoriesAdmin />} />
+          <Route path="/admin/orders" element={<Orders />} />
+          <Route path="/admin/settings" element={<Settings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

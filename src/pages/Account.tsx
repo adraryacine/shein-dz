@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { User, ShoppingBag, Heart, Package, MapPin, CreditCard, Settings, LogOut, Award, Star } from 'lucide-react';
+import { User, ShoppingBag, Heart, Package, MapPin, CreditCard, Settings, LogOut, Award, Star, LayoutDashboard } from 'lucide-react';
 import Header from '@/components/Header';
 import MobileNav from '@/components/MobileNav';
 import CartDrawer from '@/components/CartDrawer';
@@ -129,6 +129,29 @@ const Account = () => {
             </div>
           </div>
 
+          {/* Back Office Access */}
+          <div className="glass-card p-6 mb-6 gradient-sunset relative overflow-hidden">
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute -top-20 -right-20 w-60 h-60 bg-white/10 rounded-full blur-3xl animate-pulse" />
+            </div>
+            <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div className="text-white">
+                <div className="flex items-center gap-2 mb-2">
+                  <LayoutDashboard className="w-8 h-8" />
+                  <h2 className="text-2xl font-bold">Back Office</h2>
+                </div>
+                <p className="text-white/80">
+                  Gérez vos produits, catégories et commandes depuis votre espace vendeur
+                </p>
+              </div>
+              <Link to="/admin">
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold">
+                  Accéder au Back Office
+                </Button>
+              </Link>
+            </div>
+          </div>
+
           {/* Menu Sections */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Orders */}
@@ -140,9 +163,11 @@ const Account = () => {
               <p className="text-muted-foreground mb-4">
                 Suivez vos commandes et consultez l'historique
               </p>
-              <Button variant="outline" className="w-full">
-                Voir toutes les commandes
-              </Button>
+              <Link to="/admin/orders">
+                <Button variant="outline" className="w-full">
+                  Voir toutes les commandes
+                </Button>
+              </Link>
             </div>
 
             {/* Addresses */}
