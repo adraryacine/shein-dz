@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
+import { ModeToggle } from './mode-toggle';
 
 const navLinks = [
   { href: '/women', label: 'Femme' },
@@ -134,6 +135,7 @@ export const Header = () => {
 
           {/* Right actions */}
           <div className="flex items-center gap-1 sm:gap-2">
+            <ModeToggle />
             {/* Search */}
             <Button
               variant="ghost"

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 
 export const Footer = () => {
   return (
-    <footer className="bg-foreground text-background mt-20 pb-24 lg:pb-8">
+    <footer className="bg-foreground dark:bg-black text-background dark:text-foreground mt-20 pb-24 lg:pb-8">
       {/* Newsletter section */}
       <div className="container mx-auto px-4 -mt-10 relative z-10">
         <div className="glass-card p-8 md:p-12 gradient-primary">

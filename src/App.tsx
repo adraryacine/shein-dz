@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -27,38 +28,40 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/women" element={<Women />} />
-          <Route path="/men" element={<Men />} />
-          <Route path="/kids" element={<Kids />} />
-          <Route path="/new" element={<New />} />
-          <Route path="/product/:slug" element={<ProductDetail />} />
-          <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="/auth" element={<Account />} />
-          <Route path="/category/:slug" element={<Category />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/trending" element={<Trending />} />
-          <Route path="/deals" element={<Deals />} />
-          {/* Back Office Routes */}
-          <Route path="/admin" element={<Dashboard />} />
-          <Route path="/admin/dashboard" element={<Dashboard />} />
-          <Route path="/admin/products" element={<Products />} />
-          <Route path="/admin/products/new" element={<ProductForm />} />
-          <Route path="/admin/products/:id/edit" element={<ProductForm />} />
-          <Route path="/admin/categories" element={<CategoriesAdmin />} />
-          <Route path="/admin/orders" element={<Orders />} />
-          <Route path="/admin/settings" element={<Settings />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/women" element={<Women />} />
+            <Route path="/men" element={<Men />} />
+            <Route path="/kids" element={<Kids />} />
+            <Route path="/new" element={<New />} />
+            <Route path="/product/:slug" element={<ProductDetail />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/auth" element={<Account />} />
+            <Route path="/category/:slug" element={<Category />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/trending" element={<Trending />} />
+            <Route path="/deals" element={<Deals />} />
+            {/* Back Office Routes */}
+            <Route path="/admin" element={<Dashboard />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/products" element={<Products />} />
+            <Route path="/admin/products/new" element={<ProductForm />} />
+            <Route path="/admin/products/:id/edit" element={<ProductForm />} />
+            <Route path="/admin/categories" element={<CategoriesAdmin />} />
+            <Route path="/admin/orders" element={<Orders />} />
+            <Route path="/admin/settings" element={<Settings />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 
